@@ -11,11 +11,7 @@
 - [🛠️ Technologies Used](#-technologies-used)
 - [📊 Admin Dashboard](#-admin-dashboard)
 - [📦 Setup & Installation](#-setup--installation)
-- [📋 API Documentation](#-api-documentation)
-- [📈 Statistics & Charts](#-statistics--charts)
-- [🧪 Testing](#-testing)
-- [🐳 Docker Support](#-docker-support)
-- [📃 License](#-license)
+
 
 ---
 
