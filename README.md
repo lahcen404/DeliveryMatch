@@ -88,7 +88,4 @@ Charts powered by **Chart.js**
 - Docker & Docker Compose
 - Maven
 
-### Clone the repository
-```bash
-git clone https://github.com/lahcen404/HelloEvents
-cd HelloEvents
+
