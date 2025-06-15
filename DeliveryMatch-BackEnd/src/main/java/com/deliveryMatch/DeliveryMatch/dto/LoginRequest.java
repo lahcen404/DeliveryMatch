@@ -1,9 +1,6 @@
-package com.deliveryMatch.DeliveryMatch.service;
+package com.deliveryMatch.DeliveryMatch.dto;
 
-import com.deliveryMatch.DeliveryMatch.dto.AuthRequest;
-import com.deliveryMatch.DeliveryMatch.dto.AuthResponse;
-import com.deliveryMatch.DeliveryMatch.dto.LoginRequest;
-import com.deliveryMatch.DeliveryMatch.dto.RegisterRequest;
+
 import com.deliveryMatch.DeliveryMatch.model.Utilisateur;
 import com.deliveryMatch.DeliveryMatch.repository.UtilisateurRepository;
 import com.deliveryMatch.DeliveryMatch.security.JwtService;
@@ -14,57 +11,65 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.HashMap;
-
 @Service
-public class AuthService {
+public class LoginRequest {
 
     private final UtilisateurRepository repository;
-    private final PasswordEncoder passwordEncoder;
-    private final JwtService jwtService;
-    private final AuthenticationManager manager;
 
-    public AuthService(UtilisateurRepository repository, PasswordEncoder passwordEncoder, JwtService jwtService, AuthenticationManager manager) {
+    public LoginRequest(UtilisateurRepository repository, PasswordEncoder passwordEncoder, JwtService jwtService, AuthenticationManager authenticationManager) {
         this.repository = repository;
         this.passwordEncoder = passwordEncoder;
         this.jwtService = jwtService;
-        this.manager = manager;
+        this.authenticationManager = authenticationManager;
     }
+
+    private final PasswordEncoder passwordEncoder;
+    private final JwtService jwtService;
+    private final AuthenticationManager authenticationManager;
 
 
     public AuthResponse register(RegisterRequest request) {
         if (repository.findByEmail(request.getEmail()).isPresent()) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Email already exists");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Cet email existe déjà");
         }
+
         Utilisateur utilisateur = new Utilisateur();
+
+
         utilisateur.setNomComplet(request.getNomComplet());
         utilisateur.setEmail(request.getEmail());
         utilisateur.setMotDePasse(passwordEncoder.encode(request.getPassword()));
-        utilisateur.setRole(request.getRole() );
+        utilisateur.setRole(request.getRole());
+
+        utilisateur.setEstVerifie(false);
+
         repository.save(utilisateur);
-        var jwtToken = jwtService.generateToken(new HashMap<>(),utilisateur);
+
+        var jwtToken = jwtService.generateToken(utilisateur);
+
         AuthResponse response = new AuthResponse();
         response.setToken(jwtToken);
         response.setRole(utilisateur.getRole().name());
         return response;
     }
 
+
     public AuthResponse authenticate(AuthRequest request) {
-        manager.authenticate(
+        authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),
                         request.getPassword()
                 )
         );
 
-        var user = repository.findByEmail(request.getEmail()).orElseThrow();
+        var utilisateur = repository.findByEmail(request.getEmail())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Utilisateur non trouvé"));
 
-        String jwtToken = jwtService.generateToken(user);
+        var jwtToken = jwtService.generateToken(utilisateur);
 
         AuthResponse response = new AuthResponse();
         response.setToken(jwtToken);
-        response.setRole(user.getRole().name());
-
+        response.setRole(utilisateur.getRole().name());
         return response;
     }
 }

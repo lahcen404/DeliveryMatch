@@ -1,31 +1,35 @@
-package com.deliveryMatch.DeliveryMatch.model;
+package com.deliveryMatch.DeliveryMatch.model; // Assurez-vous que le package est correct
 
 import com.deliveryMatch.DeliveryMatch.enums.Role;
-import jakarta.persistence.*;
-import lombok.Data;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
+import jakarta.persistence.*; // Utilisez jakarta.persistence
+import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Data
-public class Utilisateur {
+public class Utilisateur implements UserDetails {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "nom_complet", nullable = false)
     private String nomComplet;
 
     @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(nullable = false)
+    @Column(name = "mot_de_passe", nullable = false)
     private String motDePasse;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Role role;
 
+    @Column(name = "est_verifie")
     private boolean estVerifie = false;
 
     @OneToMany(mappedBy = "conducteur", cascade = CascadeType.ALL)
@@ -34,8 +38,7 @@ public class Utilisateur {
     @OneToMany(mappedBy = "expediteur", cascade = CascadeType.ALL)
     private List<Demande> demandesFaites;
 
-    // getters & setters
-
+    // --- Getters et Setters manuels ---
 
     public Long getId() {
         return id;
@@ -99,5 +102,46 @@ public class Utilisateur {
 
     public void setDemandesFaites(List<Demande> demandesFaites) {
         this.demandesFaites = demandesFaites;
+    }
+
+
+    // --- MÉTHODES REQUISES PAR USERDETAILS (Implémentation Correcte) ---
+
+    @Override
+    public String getPassword() {
+        return motDePasse;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    // --- MODIFICATION IMPORTANTE ICI ---
+    // Cette méthode est obligatoire et ne peut pas retourner 'null'.
+    // Elle doit retourner le rôle de l'utilisateur pour la génération du token JWT.
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority(role.name()));
     }
 }
