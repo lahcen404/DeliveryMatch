@@ -1,0 +1,152 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeliveryMatch - Your Collaborative Delivery Platform</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide-react@latest/dist/umd/lucide-react.js"></script>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+<body class="text-gray-800">
+
+<!-- Hero Section -->
+<main class="pt-24 md:pt-32">
+  <section class="container mx-auto px-6 text-center">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+        Ship Anything, Anywhere.
+        <span class="gradient-text block">Smarter & Together.</span>
+      </h2>
+      <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10">
+        Connect with drivers already heading in the right direction. Save money, reduce your carbon footprint, and build a community of trust.
+      </p>
+      <div class="flex justify-center items-center gap-4 flex-wrap">
+        <a href="#" class="bg-[--c-purple] text-white font-bold px-8 py-4 rounded-lg hover:bg-[--c-pink] transition-all duration-300 transform hover:scale-105 custom-shadow-lg text-lg">
+          Send a Package
+        </a>
+        <a href="#" class="bg-white text-[--c-purple] font-bold px-8 py-4 rounded-lg hover:bg-gray-100 transition-all duration-300 border border-gray-200 transform hover:scale-105 shadow-sm text-lg">
+          Become a Driver
+        </a>
+      </div>
+    </div>
+    <!-- Hero Image with some creative flair -->
+    <div class="relative mt-16 md:mt-24">
+      <div class="absolute inset-0 bg-gradient-to-t from-gray-100 via-transparent to-transparent -bottom-20 rounded-b-full"></div>
+      <img
+        src="https://images.pexels.com/photos/4391470/pexels-photo-4391470.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        onerror="this.onerror=null;this.src='https://placehold.co/1200x600/f3e8ff/845EC2?text=Image+not+found';"
+        alt="A person handing a package to a driver in a car"
+        class="rounded-2xl mx-auto custom-shadow-lg z-10 relative object-cover w-full h-[300px] md:h-[500px]"
+      >
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="how-it-works" class="py-20 md:py-32 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h3 class="text-4xl font-bold mb-4">How It Works in 3 Simple Steps</h3>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">A seamless experience for both senders and drivers.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-10 md:gap-12">
+        <!-- Step 1 -->
+        <div class="text-center p-8 bg-gray-50 rounded-2xl custom-shadow hover:transform hover:-translate-y-2 transition-transform duration-300">
+          <div class="flex items-center justify-center h-20 w-20 rounded-full bg-[#845EC2]/10 text-[#845EC2] mx-auto mb-6" id="step1-icon"></div>
+          <h4 class="text-2xl font-bold mb-3">1. Post or Find</h4>
+          <p class="text-gray-600">
+            <span class="font-semibold">Senders:</span> List your package details. <br/>
+            <span class="font-semibold">Drivers:</span> Announce your upcoming trip.
+          </p>
+        </div>
+        <!-- Step 2 -->
+        <div class="text-center p-8 bg-gray-50 rounded-2xl custom-shadow hover:transform hover:-translate-y-2 transition-transform duration-300">
+          <div class="flex items-center justify-center h-20 w-20 rounded-full bg-[#D65DB1]/10 text-[#D65DB1] mx-auto mb-6" id="step2-icon"></div>
+          <h4 class="text-2xl font-bold mb-3">2. Match & Connect</h4>
+          <p class="text-gray-600">
+            Our smart system matches packages with available drivers. Accept requests and coordinate the details securely.
+          </p>
+        </div>
+        <!-- Step 3 -->
+        <div class="text-center p-8 bg-gray-50 rounded-2xl custom-shadow hover:transform hover:-translate-y-2 transition-transform duration-300">
+          <div class="flex items-center justify-center h-20 w-20 rounded-full bg-[#FF6F91]/10 text-[#FF6F91] mx-auto mb-6" id="step3-icon"></div>
+          <h4 class="text-2xl font-bold mb-3">3. Deliver & Rate</h4>
+          <p class="text-gray-600">
+            Complete the delivery and get paid. Leave a review to build a trustworthy and reliable community for everyone.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-20 md:py-32">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h3 class="text-4xl font-bold mb-4">Why Choose DeliveryMatch?</h3>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">More than just delivery. It's a smarter way to ship.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-xl border border-gray-200 flex space-x-6"><div class="flex-shrink-0 text-[--c-purple]" id="feat1-icon"></div><div><h4 class="text-xl font-bold mb-2">Cost-Effective</h4><p class="text-gray-600">Save up to 50% compared to traditional shipping methods by utilizing empty vehicle space.</p></div></div>
+        <div class="bg-white p-8 rounded-xl border border-gray-200 flex space-x-6"><div class="flex-shrink-0 text-[--c-pink]" id="feat2-icon"></div><div><h4 class="text-xl font-bold mb-2">Eco-Friendly</h4><p class="text-gray-600">Reduce carbon emissions by optimizing routes and preventing unnecessary trips.</p></div></div>
+        <div class="bg-white p-8 rounded-xl border border-gray-200 flex space-x-6"><div class="flex-shrink-0 text-[--c-hotpink]" id="feat3-icon"></div><div><h4 class="text-xl font-bold mb-2">Secure & Verified</h4><p class="text-gray-600">All users are verified, and our rating system ensures a safe and transparent community.</p></div></div>
+        <div class="bg-white p-8 rounded-xl border border-gray-200 flex space-x-6"><div class="flex-shrink-0 text-[--c-orange]" id="feat4-icon"></div><div><h4 class="text-xl font-bold mb-2">Flexible Deliveries</h4><p class="text-gray-600">Ship items of all sizes, from a small document to a piece of furniture.</p></div></div>
+        <div class="bg-white p-8 rounded-xl border border-gray-200 flex space-x-6"><div class="flex-shrink-0 text-[--c-yellow]" id="feat5-icon"></div><div><h4 class="text-xl font-bold mb-2">Real-Time Updates</h4><p class="text-gray-600">Stay informed with notifications and updates on your delivery's progress.</p></div></div>
+        <div class="bg-white p-8 rounded-xl border border-gray-200 flex space-x-6"><div class="flex-shrink-0 text-[--c-purple]" id="feat6-icon"></div><div><h4 class="text-xl font-bold mb-2">Community Driven</h4><p class="text-gray-600">Be part of a growing network of trust, built on user ratings and reviews.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW: What You Can Ship Section -->
+  <section class="py-20 md:py-32 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h3 class="text-4xl font-bold mb-4">From Documents to Dining Chairs</h3>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">Our flexible network can handle almost anything you need to send.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        <div class="group relative rounded-xl overflow-hidden custom-shadow">
+          <img src="https://images.pexels.com/photos/261909/pexels-photo-261909.jpeg?auto=compress&cs=tinysrgb&w=600" class="h-full w-full object-cover transform group-hover:scale-110 transition-transform duration-500" alt="Books">
+          <div class="absolute inset-0 bg-black/40 flex items-end p-4"><h5 class="text-white text-xl font-bold">Books & Documents</h5></div>
+        </div>
+        <div class="group relative rounded-xl overflow-hidden custom-shadow">
+          <img src="https://images.pexels.com/photos/3971985/pexels-photo-3971985.jpeg?auto=compress&cs=tinysrgb&w=600" class="h-full w-full object-cover transform group-hover:scale-110 transition-transform duration-500" alt="Musical instrument">
+          <div class="absolute inset-0 bg-black/40 flex items-end p-4"><h5 class="text-white text-xl font-bold">Musical Instruments</h5></div>
+        </div>
+        <div class="group relative rounded-xl overflow-hidden custom-shadow">
+          <img src="https://images.pexels.com/photos/4505167/pexels-photo-4505167.jpeg?auto=compress&cs=tinysrgb&w=600" class="h-full w-full object-cover transform group-hover:scale-110 transition-transform duration-500" alt="House plant">
+          <div class="absolute inset-0 bg-black/40 flex items-end p-4"><h5 class="text-white text-xl font-bold">Plants & Flowers</h5></div>
+        </div>
+        <div class="group relative rounded-xl overflow-hidden custom-shadow">
+          <img src="https://images.pexels.com/photos/2082087/pexels-photo-2082087.jpeg?auto=compress&cs=tinysrgb&w=600" class="h-full w-full object-cover transform group-hover:scale-110 transition-transform duration-500" alt="Furniture">
+          <div class="absolute inset-0 bg-black/40 flex items-end p-4"><h5 class="text-white text-xl font-bold">Small Furniture</h5></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section id="contact" class="bg-gradient-to-r from-[--c-purple] to-[--c-pink]">
+    <div class="container mx-auto px-6 py-20 text-center">
+      <h3 class="text-4xl font-extrabold text-white mb-4">Ready to Join the Revolution?</h3>
+      <p class="text-white/80 text-lg max-w-2xl mx-auto mb-8">
+        Whether you're sending a package or have empty space in your car, get started today and be part of a smarter delivery network.
+      </p>
+      <a href="#" class="bg-white text-[--c-purple] font-bold px-8 py-4 rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg text-lg">
+        Create Your Free Account
+      </a>
+    </div>
+  </section>
+
+</main>
+<script src="assets/script.js"></script>
+
+</body>
+

@@ -31,8 +31,8 @@ export class AuthService {
     return localStorage.getItem(this.TOKEN_KEY);
   }
 
-  getRole(): 'ADMIN' | 'CUSTOMER' | null {
-    return localStorage.getItem('role') as 'ADMIN' | 'CUSTOMER' | null;
+  getRole(): 'ADMIN' | 'SENDER' | "DRIVER" | null {
+    return localStorage.getItem('role') as 'ADMIN' | 'SENDER' | "DRIVER"|  null;
   }
 
   logout() {

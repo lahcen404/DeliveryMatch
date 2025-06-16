@@ -1,1 +1,156 @@
-<p>admin-dashboard works!</p>
+<!-- Google Fonts: Inter -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide-react@latest/dist/umd/lucide-react.js"></script>
+<script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+
+<body class="text-gray-800">
+
+<!-- This would be your main app layout with sidebar and content -->
+<div class="flex h-screen bg-[--c-light-bg]">
+
+  <!-- Sidebar -->
+  <aside class="w-64 bg-white shadow-lg flex-shrink-0 flex flex-col">
+    <div class="p-6 text-center border-b">
+      <h1 class="text-2xl font-bold">Delivery<span class="text-[--c-purple]">Match</span></h1>
+    </div>
+    <nav class="mt-6 px-4 space-y-2 flex-1">
+      <a href="#" class="active-link flex items-center px-4 py-3 font-semibold transition-transform transform hover:scale-105">
+        <span id="icon-dashboard" class="mr-3"></span> Dashboard
+      </a>
+      <a href="#" class="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+        <span id="icon-users" class="mr-3"></span> Users
+      </a>
+      <a href="#" class="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+        <span id="icon-trips" class="mr-3"></span> Trips
+      </a>
+      <a href="#" class="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+        <span id="icon-requests" class="mr-3"></span> Requests
+      </a>
+    </nav>
+    <div class="p-4 border-t">
+      <a href="#" class="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+        <span id="icon-settings" class="mr-3"></span> Settings
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 overflow-y-auto">
+    <!-- Header -->
+    <header class="bg-white shadow-sm p-6 flex justify-between items-center sticky top-0 z-10">
+      <h2 class="text-3xl font-bold text-gray-800">Admin Dashboard</h2>
+      <div class="flex items-center space-x-4">
+        <span class="text-gray-600 font-medium">Welcome, Admin!</span>
+        <button class="p-2 rounded-full hover:bg-red-100 hover:text-red-500 transition-colors">
+          <span id="icon-logout"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Dashboard Content -->
+    <div class="p-8">
+
+      <!-- Statistic Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Card 1: Total Users -->
+        <div class="fade-in-up bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 transition-transform transform hover:-translate-y-2 border-l-4 border-[--c-purple]">
+          <div class="p-3 rounded-full bg-[--c-purple]/20 text-[--c-purple]" id="stat-icon1"></div>
+          <div>
+            <p class="text-sm text-gray-500">Total Users</p>
+            <p class="text-2xl font-bold">1,254</p>
+          </div>
+        </div>
+        <!-- Card 2: Active Trips -->
+        <div class="fade-in-up bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 transition-transform transform hover:-translate-y-2 border-l-4 border-[--c-pink]" style="animation-delay: 100ms;">
+          <div class="p-3 rounded-full bg-[--c-pink]/20 text-[--c-pink]" id="stat-icon2"></div>
+          <div>
+            <p class="text-sm text-gray-500">Active Trips</p>
+            <p class="text-2xl font-bold">82</p>
+          </div>
+        </div>
+        <!-- Card 3: Pending Requests -->
+        <div class="fade-in-up bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 transition-transform transform hover:-translate-y-2 border-l-4 border-[--c-orange]" style="animation-delay: 200ms;">
+          <div class="p-3 rounded-full bg-[--c-orange]/20 text-[--c-orange]" id="stat-icon3"></div>
+          <div>
+            <p class="text-sm text-gray-500">Pending Requests</p>
+            <p class="text-2xl font-bold">16</p>
+          </div>
+        </div>
+        <!-- Card 4: Revenue -->
+        <div class="fade-in-up bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 transition-transform transform hover:-translate-y-2 border-l-4 border-[--c-yellow]" style="animation-delay: 300ms;">
+          <div class="p-3 rounded-full bg-[--c-yellow]/20 text-[--c-yellow]" id="stat-icon4"></div>
+          <div>
+            <p class="text-sm text-gray-500">Total Revenue</p>
+            <p class="text-2xl font-bold">$4,820</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Section -->
+      <div class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- User Growth Chart -->
+        <div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-lg fade-in-up" style="animation-delay: 400ms;">
+          <h3 class="font-semibold mb-4 text-gray-700">User Growth</h3>
+          <div class="h-80 chart-placeholder flex items-center justify-center rounded-lg">
+            <p class="text-gray-400 font-medium">Chart.js User Growth Chart Here</p>
+          </div>
+        </div>
+        <!-- Trip Status Chart -->
+        <div class="bg-white p-6 rounded-xl shadow-lg fade-in-up" style="animation-delay: 500ms;">
+          <h3 class="font-semibold mb-4 text-gray-700">Trip Status</h3>
+          <div class="h-80 chart-placeholder flex items-center justify-center rounded-lg">
+            <p class="text-gray-400 font-medium">Chart.js Doughnut Chart Here</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Activity & Quick Actions -->
+      <div class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-lg fade-in-up" style="animation-delay: 600ms;">
+          <h3 class="font-semibold mb-4 text-gray-700">Recent Activity</h3>
+          <ul class="space-y-4">
+            <li class="flex items-center space-x-3 text-sm p-2 rounded-lg hover:bg-gray-50 transition-colors">
+              <span class="bg-green-100 text-green-700 p-1 rounded-full"><span id="act-icon1"></span></span>
+              <div><span class="font-semibold text-gray-800">New User:</span> John Doe signed up.</div>
+              <div class="ml-auto text-gray-400">5 min ago</div>
+            </li>
+            <li class="flex items-center space-x-3 text-sm p-2 rounded-lg hover:bg-gray-50 transition-colors">
+              <span class="bg-blue-100 text-blue-700 p-1 rounded-full"><span id="act-icon2"></span></span>
+              <div><span class="font-semibold text-gray-800">New Trip:</span> Jane Smith posted a trip from NY to LA.</div>
+              <div class="ml-auto text-gray-400">15 min ago</div>
+            </li>
+            <li class="flex items-center space-x-3 text-sm p-2 rounded-lg hover:bg-gray-50 transition-colors">
+              <span class="bg-yellow-100 text-yellow-700 p-1 rounded-full"><span id="act-icon3"></span></span>
+              <div><span class="font-semibold text-gray-800">New Request:</span> Package request for trip #452.</div>
+              <div class="ml-auto text-gray-400">32 min ago</div>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg fade-in-up" style="animation-delay: 700ms;">
+          <h3 class="font-semibold mb-4 text-gray-700">Quick Actions</h3>
+          <div class="flex flex-col space-y-3">
+            <button class="w-full text-left flex items-center space-x-3 px-4 py-3 bg-gray-100 hover:bg-[--c-purple] hover:text-white rounded-lg transition-all duration-300">
+              <span id="quick-icon1"></span>
+              <span>Add New User</span>
+            </button>
+            <button class="w-full text-left flex items-center space-x-3 px-4 py-3 bg-gray-100 hover:bg-[--c-pink] hover:text-white rounded-lg transition-all duration-300">
+              <span id="quick-icon2"></span>
+              <span>Verify a Driver</span>
+            </button>
+            <button class="w-full text-left flex items-center space-x-3 px-4 py-3 bg-gray-100 hover:bg-[--c-orange] hover:text-white rounded-lg transition-all duration-300">
+              <span id="quick-icon3"></span>
+              <span>Generate Report</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

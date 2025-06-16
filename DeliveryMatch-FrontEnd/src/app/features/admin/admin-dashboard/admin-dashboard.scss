@@ -1,0 +1,44 @@
+/* Define the custom color palette from your theme */
+:root {
+  --c-purple: #845EC2;
+  --c-pink: #D65DB1;
+  --c-hotpink: #FF6F91;
+  --c-orange: #FF9671;
+  --c-yellow: #FFC75F;
+  --c-light-bg: #f8f7fa; /* A very light background */
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--c-light-bg);
+}
+
+/* Custom animation for cards appearing */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply the animation to elements */
+.fade-in-up {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* Gradient for the active sidebar link */
+.active-link {
+  background: linear-gradient(90deg, var(--c-purple), var(--c-pink));
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px -5px var(--c-purple);
+}
+
+/* Gradient for chart placeholder */
+.chart-placeholder {
+  background: linear-gradient(135deg, #f5f3ff 0%, #fde2f3 100%);
+}

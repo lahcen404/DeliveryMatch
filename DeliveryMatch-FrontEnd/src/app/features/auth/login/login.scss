@@ -1,0 +1,102 @@
+
+:host {
+  --c-purple: #845ec2;
+  --c-pink: #d65db1;
+  --c-light-purple: #f3e8ff;
+}
+
+.login-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 1rem;
+  background-color: var(--c-light-purple);
+  background-image:
+    radial-gradient(at 0% 0%, hsla(305, 76%, 94%, 1) 0px, transparent 50%),
+    radial-gradient(at 98% 1%, hsla(283, 76%, 94%, 1) 0px, transparent 50%);
+}
+
+.login-card {
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px -10px rgba(132, 94, 194, 0.3);
+}
+
+mat-card-header {
+  margin-bottom: 2rem;
+}
+
+mat-card-title {
+  color: var(--c-purple) !important;
+  animation: fadeInDown 0.5s ease-out;
+}
+
+mat-card-subtitle {
+  color: #4b5563;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+
+::ng-deep {
+  .login-card .mat-mdc-form-field.mat-focused {
+    .mat-mdc-floating-label {
+      color: var(--c-purple) !important;
+    }
+    .mdc-notched-outline > * {
+      border-color: var(--c-purple) !important;
+      border-width: 2px !important;
+    }
+  }
+
+  .login-card .mat-mdc-form-field .mat-icon {
+    color: #9ca3af;
+  }
+
+ .login-card .mat-mdc-form-field button.mat-mdc-icon-button {
+    color: #6b7280;
+    cursor: pointer;
+  }
+
+  .login-card .mat-mdc-raised-button.mat-primary {
+    background-color: var(--c-purple) !important;
+    color: white !important;
+    padding: 24px 0 !important; // A taller button
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px -5px var(--c-purple);
+
+    &:hover:not([disabled]) {
+      background-color: var(--c-pink) !important;
+      box-shadow: 0 6px 20px -5px var(--c-pink);
+      transform: translateY(-2px);
+    }
+
+    &:disabled {
+      background-color: #d1d5db !important;
+      box-shadow: none;
+    }
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
