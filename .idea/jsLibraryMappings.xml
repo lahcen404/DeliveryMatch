@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="file://$PROJECT_DIR$" libraries="{lucide-react, react}" />
-    <file url="file://$PROJECT_DIR$/DeliveryMatch-BackEnd" libraries="{lucide-react, react}" />
+    <file url="file://$PROJECT_DIR$" libraries="{@babel/standalone, lucide-react, react, react-dom}" />
+    <file url="file://$PROJECT_DIR$/DeliveryMatch-BackEnd" libraries="{@babel/standalone, lucide-react, react, react-dom}" />
   </component>
 </project>

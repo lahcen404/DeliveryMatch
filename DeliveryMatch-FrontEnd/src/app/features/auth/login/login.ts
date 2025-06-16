@@ -63,7 +63,14 @@ export class Login {
 
         if (this.auth.getRole()=="ADMIN"){
         this.router.navigate(['/admin-dashboard']);
+        }else if (this.auth.getRole()=="SENDER") {
+          this.router.navigate(['/sender-dashboard']);
+        }else if(this.auth.getRole()=="DRIVER"){
+          this.router.navigate(['/driver-dashboard']);
+
         }
+
+
         console.log("Logiin dooone")
         this.auth.saveToken(res.token);
         console.log('Token howa : ', res.token);

@@ -13,10 +13,22 @@
       <a href="#contact" class="text-gray-600 hover:text-[--c-purple] transition-colors">Contact</a>
     </nav>
     <div class="flex items-center space-x-4">
-      <a href="#" class="text-[--c-purple] font-semibold hover:text-[--c-pink] transition-colors">Log In</a>
-      <a href="#" class="bg-[--c-purple] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[--c-pink] transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+      <ul>
+      <li *ngIf="!authService.isLoggedIn()">
+        <a routerLink="/login" class="bg-purple-400 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[--c-pink] transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+          Login</a>
+      </li>
+
+      <li *ngIf="authService.isLoggedIn()">
+        <button (click)="logout()" class="bg-purple-400 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[--c-pink] transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+          Logout</button>
+      </li>
+      </ul>
+      <li *ngIf="!authService.isLoggedIn()">
+      <a routerLink="/register" class="bg-purple-400 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[--c-pink] transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
         Sign Up
       </a>
+      </li>
     </div>
   </div>
 </header>

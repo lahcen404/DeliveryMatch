@@ -15,6 +15,8 @@ body {
   --c-hotpink: #FF6F91;
   --c-orange: #FF9671;
   --c-yellow: #FFC75F;
+  --c-light-bg: #f8f7fa;
+
 }
 
 /* Gradient text effect with the new palette */
@@ -29,4 +31,27 @@ body {
 }
 .custom-shadow-lg {
   box-shadow: 0 20px 25px -5px rgba(132, 94, 194, 0.15), 0 10px 10px -5px rgba(132, 94, 194, 0.08);
+}
+
+
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--c-light-bg);
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.active-link {
+  background: linear-gradient(90deg, var(--c-purple), var(--c-pink));
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px -5px var(--c-purple);
 }
