@@ -64,3 +64,9 @@ renderIcon(UserPlus, 'quick-icon1', {size: 20});
 renderIcon(FileCheck, 'quick-icon2', {size: 20});
 renderIcon(FileBarChart, 'quick-icon3', {size: 20});
 
+const { LayoutDashboard, Users, Map, Mail, LogOut, ShieldCheck, UserCheck, UserX } = LucideReact;
+const renderIcon = (component, containerId, props = {}) => ReactDOM.render(React.createElement(component, props), document.getElementById(containerId));
+renderIcon(LayoutDashboard, 'icon-dashboard'); renderIcon(Users, 'icon-users'); renderIcon(Map, 'icon-trips'); renderIcon(Mail, 'icon-requests'); renderIcon(LogOut, 'icon-logout');
+renderIcon(Users, 'stat-icon1', {size: 24}); renderIcon(Map, 'stat-icon2', {size: 24}); renderIcon(Mail, 'stat-icon3', {size: 24}); renderIcon(ShieldCheck, 'stat-icon4', {size: 24});
+renderIcon(UserCheck, 'quick-icon1', {size: 20}); renderIcon(UserX, 'quick-icon2', {size: 20}); renderIcon(ShieldCheck, 'quick-icon3', {size: 20});
+

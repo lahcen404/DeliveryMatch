@@ -1,9 +1,6 @@
-<!-- Google Fonts: Inter -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<!-- Lucide Icons -->
 <script src="https://unpkg.com/lucide-react@latest/dist/umd/lucide-react.js"></script>
 <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
 <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
@@ -11,138 +8,62 @@
 
 
 <body class="text-gray-800 p-15">
-
 <div class="flex h-screen bg-[--c-light-bg]">
-
   <!-- Sidebar -->
   <aside class="w-64 bg-white shadow-lg flex-shrink-0 flex flex-col">
-    <div class="p-6 text-center border-b">
-      <h1 class="text-2xl font-bold">Delivery<span class="text-[--c-purple]">Match</span></h1>
-    </div>
     <nav class="mt-6 px-4 space-y-2 flex-1">
-      <a href="#" class="active-link flex items-center px-4 py-3 font-semibold transition-transform transform hover:scale-105">
-        <span id="icon-dashboard" class="mr-3"></span> Dashboard
-      </a>
-      <a href="#" class="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
-        <span id="icon-trips" class="mr-3"></span> My Trips
-      </a>
-      <a href="#" class="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
-        <span id="icon-wallet" class="mr-3"></span> Earnings
-      </a>
-      <a href="#" class="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
-        <span id="icon-profile" class="mr-3"></span> Profile
-      </a>
+      <a href="#" class="active-link flex items-center px-4 py-3 font-semibold transition-transform transform hover:scale-105"><span id="icon-dashboard" class="mr-3"></span> Dashboard</a>
+      <a href="#" class="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"><span id="icon-trips" class="mr-3"></span> Créer Trajets</a>
+      <a href="#" class="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"><span id="icon-history" class="mr-3"></span> Afficher Historique</a>
     </nav>
-    <div class="p-4 border-t">
-      <a href="#" class="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
-        <span id="icon-logout" class="mr-3"></span> Logout
-      </a>
-    </div>
   </aside>
 
   <!-- Main Content -->
   <main class="flex-1 overflow-y-auto">
-    <!-- Header -->
     <header class="bg-white shadow-sm p-6 flex justify-between items-center sticky top-0 z-10">
-      <div>
-        <h2 class="text-3xl font-bold text-gray-800">Driver Dashboard</h2>
-        <p class="text-gray-500 mt-1">Here's what's happening with your trips.</p>
-      </div>
-      <a href="#" class="bg-gradient-to-r from-purple-100 to-pink-100 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex items-center space-x-2">
-        <span id="icon-plus"></span>
-        <span>Publish New Trip</span>
-      </a>
+      <div><h2 class="text-3xl font-bold text-gray-800">Conducteur Dashboard</h2><p class="text-gray-500 mt-1">Gérez vos trajets et demandes ici.</p></div>
+      <a href="#" class="bg-gradient-to-r from-purple-400 to-pink-400 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex items-center space-x-2"><span id="icon-plus"></span><span>Créer un Trajet</span></a>
     </header>
 
-    <!-- Dashboard Content -->
     <div class="p-8">
-
-      <!-- Statistic Cards for Driver -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Card 1: Total Trips -->
-        <div class="fade-in-up bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 transition-transform transform hover:-translate-y-2 border-l-4 border-[--c-purple]">
-          <div class="p-3 rounded-full bg-[--c-purple]/20 text-[--c-purple]" id="stat-icon1"></div>
-          <div>
-            <p class="text-sm text-gray-500">Total Trips Completed</p>
-            <p class="text-2xl font-bold">42</p>
-          </div>
-        </div>
-        <!-- Card 2: Total Earnings -->
-        <div class="fade-in-up bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 transition-transform transform hover:-translate-y-2 border-l-4 border-[--c-hotpink]" style="animation-delay: 100ms;">
-          <div class="p-3 rounded-full bg-[--c-hotpink]/20 text-[--c-hotpink]" id="stat-icon2"></div>
-          <div>
-            <p class="text-sm text-gray-500">Total Earnings</p>
-            <p class="text-2xl font-bold">$1,350</p>
-          </div>
-        </div>
-        <!-- Card 3: Driver Rating -->
-        <div class="fade-in-up bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 transition-transform transform hover:-translate-y-2 border-l-4 border-[--c-yellow]" style="animation-delay: 200ms;">
-          <div class="p-3 rounded-full bg-[--c-yellow]/20 text-[--c-yellow]" id="stat-icon3"></div>
-          <div>
-            <p class="text-sm text-gray-500">Your Rating</p>
-            <div class="flex items-center">
-              <p class="text-2xl font-bold mr-1">4.9</p>
-              <span class="text-[--c-yellow]" id="icon-star"></span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Active Trips Section -->
-      <div class="mt-10 bg-white p-6 rounded-xl shadow-lg fade-in-up" style="animation-delay: 300ms;">
-        <h3 class="font-semibold text-xl mb-4 text-gray-700">Active Trips & Requests</h3>
+      <!-- "Gérer Demandes" Section -->
+      <div class="bg-white p-6 rounded-xl shadow-lg fade-in-up" style="animation-delay: 100ms;">
+        <h3 class="font-semibold text-xl mb-4 text-gray-700">Afficher Demandes en Attente</h3>
         <div class="space-y-4">
-          <!-- Trip Item 1 -->
+          <!-- Request Item 1 -->
           <div class="p-4 rounded-lg border flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div>
-              <p class="font-bold text-lg text-gray-800">New York, NY -> Boston, MA</p>
-              <p class="text-sm text-gray-500">Departure: June 20, 2024 - 8:00 AM</p>
+              <p class="font-semibold text-gray-600">Pour: <span class="font-bold text-gray-800">New York -> Boston</span></p>
+              <p class="text-sm text-gray-500">De: John Doe | Colis: "Documents Importants"</p>
             </div>
-            <div class="flex items-center space-x-4">
-              <div class="text-center">
-                <p class="font-bold text-[--c-purple] text-2xl">2</p>
-                <p class="text-xs text-gray-500">New Requests</p>
-              </div>
-              <button class="px-4 py-2 bg-gray-200 text-gray-800 font-semibold rounded-lg hover:bg-gray-300 transition-colors">Manage</button>
+            <div class="flex items-center space-x-3">
+              <button class="px-4 py-2 bg-green-100 text-green-700 font-semibold rounded-lg hover:bg-green-200 transition-colors flex items-center gap-2"><span id="icon-accept"></span>Accept</button>
+              <button class="px-4 py-2 bg-red-100 text-red-700 font-semibold rounded-lg hover:bg-red-200 transition-colors flex items-center gap-2"><span id="icon-refuse"></span>Refuse</button>
             </div>
           </div>
-          <!-- Trip Item 2 -->
+          <!-- Request Item 2 -->
           <div class="p-4 rounded-lg border flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div>
-              <p class="font-bold text-lg text-gray-800">San Francisco, CA -> Los Angeles, CA</p>
-              <p class="text-sm text-gray-500">Departure: June 22, 2024 - 10:00 AM</p>
+              <p class="font-semibold text-gray-600">Pour: <span class="font-bold text-gray-800">New York -> Boston</span></p>
+              <p class="text-sm text-gray-500">De: Jane Smith | Colis: "Petite Boîte"</p>
             </div>
-            <div class="flex items-center space-x-4">
-              <div class="text-center">
-                <p class="font-bold text-gray-400 text-2xl">0</p>
-                <p class="text-xs text-gray-500">New Requests</p>
-              </div>
-              <button class="px-4 py-2 bg-gray-200 text-gray-800 font-semibold rounded-lg hover:bg-gray-300 transition-colors">Manage</button>
+            <div class="flex items-center space-x-3">
+              <button class="px-4 py-2 bg-green-100 text-green-700 font-semibold rounded-lg hover:bg-green-200 transition-colors flex items-center gap-2"><span id="icon-accept2"></span>Accept</button>
+              <button class="px-4 py-2 bg-red-100 text-red-700 font-semibold rounded-lg hover:bg-red-200 transition-colors flex items-center gap-2"><span id="icon-refuse2"></span>Refuse</button>
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- Recent History Section -->
-      <div class="mt-10 bg-white p-6 rounded-xl shadow-lg fade-in-up" style="animation-delay: 400ms;">
-        <h3 class="font-semibold text-xl mb-4 text-gray-700">Completed Trips</h3>
-        <ul class="divide-y divide-gray-200">
-          <li class="py-3 flex justify-between items-center">
-            <div>
-              <p class="font-semibold">Philadelphia -> Washington D.C.</p>
-              <p class="text-sm text-gray-500">Completed on June 12, 2024</p>
-            </div>
-            <p class="font-semibold text-green-600">+$45.00</p>
-          </li>
-          <li class="py-3 flex justify-between items-center">
-            <div>
-              <p class="font-semibold">Chicago -> Detroit</p>
-              <p class="text-sm text-gray-500">Completed on June 10, 2024</p>
-            </div>
-            <p class="font-semibold text-green-600">+$60.00</p>
-          </li>
-        </ul>
       </div>
     </div>
   </main>
 </div>
+
+<script type="text/babel">
+  const { LayoutDashboard, Map, History, LogOut, Plus, Check, X } = LucideReact;
+  const renderIcon = (component, containerId, props = {}) => ReactDOM.render(React.createElement(component, props), document.getElementById(containerId));
+  renderIcon(LayoutDashboard, 'icon-dashboard'); renderIcon(Map, 'icon-trips'); renderIcon(History, 'icon-history'); renderIcon(LogOut, 'icon-logout');
+  renderIcon(Plus, 'icon-plus', {size: 20});
+  renderIcon(Check, 'icon-accept', {size: 16}); renderIcon(X, 'icon-refuse', {size: 16});
+  renderIcon(Check, 'icon-accept2', {size: 16}); renderIcon(X, 'icon-refuse2', {size: 16});
+</script>
+</body>

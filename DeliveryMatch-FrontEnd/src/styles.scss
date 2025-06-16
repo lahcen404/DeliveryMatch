@@ -55,3 +55,10 @@ body {
   border-radius: 8px;
   box-shadow: 0 4px 15px -5px var(--c-purple);
 }
+
+.fade-in-up { animation: fadeInUp 0.5s ease-out forwards; }
+.active-link { background: linear-gradient(90deg, var(--c-purple), var(--c-pink)); color: white; border-radius: 8px; box-shadow: 0 4px 15px -5px var(--c-purple); }
+.chart-placeholder { background: linear-gradient(135deg, #f5f3ff 0%, #fde2f3 100%); }
+
+.fade-in-up { animation: fadeInUp 0.5s ease-out forwards; }
+
