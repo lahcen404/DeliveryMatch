@@ -7,6 +7,8 @@ import jakarta.validation.Valid;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/trajets")
@@ -22,5 +24,10 @@ public class TrajetController {
     @PostMapping
     public Trajet createTrajet(@Valid @RequestBody TrajetDto trajetDto){
         return trajetService.createTrajet(trajetDto);
+    }
+
+    @GetMapping
+    public List<Trajet> getAllTrajets(){
+        return trajetService.getAllTrajets();
     }
 }

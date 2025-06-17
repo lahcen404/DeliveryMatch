@@ -29,7 +29,7 @@ public class Trajet {
     private String typeMarchandise;
     private int capaciteDisponible;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "conducteur_id", nullable = false)
     private Utilisateur conducteur;
 

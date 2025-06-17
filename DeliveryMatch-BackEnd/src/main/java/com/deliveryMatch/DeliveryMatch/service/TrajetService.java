@@ -8,6 +8,8 @@ import com.deliveryMatch.DeliveryMatch.repository.TrajetRepository;
 import com.deliveryMatch.DeliveryMatch.repository.UtilisateurRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TrajetService {
     private final TrajetRepository trajetRepository;
@@ -44,4 +46,10 @@ public class TrajetService {
 
 return trajetRepository.save(trajet);
     }
+
+    // afficher tous les trajets
+
+public List<Trajet> getAllTrajets(){
+        return trajetRepository.findAll();
+}
 }

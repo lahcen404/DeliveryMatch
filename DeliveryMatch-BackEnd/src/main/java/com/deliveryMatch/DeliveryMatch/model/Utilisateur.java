@@ -1,4 +1,4 @@
-package com.deliveryMatch.DeliveryMatch.model; // Assurez-vous que le package est correct
+package com.deliveryMatch.DeliveryMatch.model;
 
 import com.deliveryMatch.DeliveryMatch.enums.Role;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -6,7 +6,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import jakarta.persistence.*; // Utilisez jakarta.persistence
+import jakarta.persistence.*;
 import java.util.Collection;
 import java.util.List;
 
@@ -40,7 +40,6 @@ public class Utilisateur implements UserDetails {
     @OneToMany(mappedBy = "expediteur", cascade = CascadeType.ALL)
     private List<Demande> demandesFaites;
 
-    // --- Getters et Setters manuels ---
 
     public Long getId() {
         return id;
@@ -107,7 +106,6 @@ public class Utilisateur implements UserDetails {
     }
 
 
-    // --- MÉTHODES REQUISES PAR USERDETAILS (Implémentation Correcte) ---
 
     @Override
     public String getPassword() {
@@ -139,9 +137,7 @@ public class Utilisateur implements UserDetails {
         return true;
     }
 
-    // --- MODIFICATION IMPORTANTE ICI ---
-    // Cette méthode est obligatoire et ne peut pas retourner 'null'.
-    // Elle doit retourner le rôle de l'utilisateur pour la génération du token JWT.
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));
