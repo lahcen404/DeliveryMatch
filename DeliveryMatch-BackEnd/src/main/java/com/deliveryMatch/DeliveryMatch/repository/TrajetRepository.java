@@ -1,4 +1,7 @@
 package com.deliveryMatch.DeliveryMatch.repository;
 
-public interface TrajetRepository {
+import com.deliveryMatch.DeliveryMatch.model.Trajet;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TrajetRepository extends JpaRepository<Trajet, Long> {
 }
