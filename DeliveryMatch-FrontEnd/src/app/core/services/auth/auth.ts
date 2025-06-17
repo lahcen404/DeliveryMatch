@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {AuthResponse} from '../../shared/models/AuthResponse';
+import {AuthResponse} from '../../../shared/models/AuthResponse';
 import {Observable} from 'rxjs';
-import {LoginRequest} from '../../shared/models/LoginRequest';
+import {LoginRequest} from '../../../shared/models/LoginRequest';
 
 @Injectable({
   providedIn: 'root'

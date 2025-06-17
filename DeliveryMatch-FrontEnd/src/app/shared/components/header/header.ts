@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Output} from '@angular/core';
-import {AuthService} from '../../../core/services/auth';
+import {AuthService} from '../../../core/services/auth/auth';
 import {Router, RouterLink} from '@angular/router';
 import {NgIf} from '@angular/common';
 

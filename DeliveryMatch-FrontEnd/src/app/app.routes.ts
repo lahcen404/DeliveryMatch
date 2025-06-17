@@ -10,7 +10,7 @@ import {driverGuard} from './core/guards/driver guards/driver-guard';
 import {senderGuard} from './core/guards/sender guards/sender-guard';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: Login },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: Home },

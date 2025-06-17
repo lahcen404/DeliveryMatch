@@ -5,7 +5,7 @@ import {MatError, MatFormField, MatInput, MatLabel} from '@angular/material/inpu
 import {MatButton, MatButtonModule, MatIconButton} from '@angular/material/button';
 import {NgIf} from '@angular/common';
 import {MatIcon, MatIconModule} from '@angular/material/icon';
-import {AuthService} from '../../../core/services/auth';
+import {AuthService} from '../../../core/services/auth/auth';
 import {Router} from '@angular/router';
 
 @Component({
