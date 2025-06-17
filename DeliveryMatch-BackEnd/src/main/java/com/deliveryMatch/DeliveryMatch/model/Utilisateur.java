@@ -1,6 +1,7 @@
 package com.deliveryMatch.DeliveryMatch.model; // Assurez-vous que le package est correct
 
 import com.deliveryMatch.DeliveryMatch.enums.Role;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -33,6 +34,7 @@ public class Utilisateur implements UserDetails {
     private boolean estVerifie = false;
 
     @OneToMany(mappedBy = "conducteur", cascade = CascadeType.ALL)
+    @JsonIgnore // stop loop
     private List<Trajet> trajetsPublies;
 
     @OneToMany(mappedBy = "expediteur", cascade = CascadeType.ALL)

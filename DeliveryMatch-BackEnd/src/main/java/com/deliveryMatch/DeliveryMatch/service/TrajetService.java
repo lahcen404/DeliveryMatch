@@ -6,7 +6,6 @@ import com.deliveryMatch.DeliveryMatch.model.Trajet;
 import com.deliveryMatch.DeliveryMatch.model.Utilisateur;
 import com.deliveryMatch.DeliveryMatch.repository.TrajetRepository;
 import com.deliveryMatch.DeliveryMatch.repository.UtilisateurRepository;
-import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -24,7 +23,7 @@ public class TrajetService {
         Utilisateur userConducteur = utilisateurRepository.findById(Long.valueOf(trajetDto.conducteurId())).orElseThrow();
 
         if (userConducteur.getRole() != Role.DRIVER) {
-            throw new IllegalStateException("The user assigned as a driver must have the 'DRIVER' role.");
+            throw new IllegalStateException("The user assigned as a driver must have the 'DRIVER' role");
         }
 
         Long conducteurId = !trajetDto.conducteurId().isEmpty()
