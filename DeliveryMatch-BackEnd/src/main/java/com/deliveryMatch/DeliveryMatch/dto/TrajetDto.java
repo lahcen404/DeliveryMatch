@@ -25,10 +25,9 @@ public record TrajetDto(
         String typeMarchandise,
 
         @Min(value = 1, message = "La capacité disponible doit être au moins 1")
-        int capaciteDisponible,
+        int capaciteDisponible
 
-        @NotNull(message = "ID du conducteur est obligatoire")
-        String conducteurId
+
 
         ){
 

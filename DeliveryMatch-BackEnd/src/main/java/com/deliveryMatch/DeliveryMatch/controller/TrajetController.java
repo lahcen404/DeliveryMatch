@@ -30,4 +30,9 @@ public class TrajetController {
     public List<Trajet> getAllTrajets(){
         return trajetService.getAllTrajets();
     }
+
+    @PutMapping("/{id}")
+    public Trajet updateTrajet(@PathVariable Long id , @RequestBody Trajet trajet){
+        return trajetService.updateTrajet(id,trajet);
+    }
 }

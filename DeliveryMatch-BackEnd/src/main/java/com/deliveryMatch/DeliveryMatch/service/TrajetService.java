@@ -6,6 +6,8 @@ import com.deliveryMatch.DeliveryMatch.model.Trajet;
 import com.deliveryMatch.DeliveryMatch.model.Utilisateur;
 import com.deliveryMatch.DeliveryMatch.repository.TrajetRepository;
 import com.deliveryMatch.DeliveryMatch.repository.UtilisateurRepository;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,15 +24,16 @@ public class TrajetService {
 
     public Trajet createTrajet(TrajetDto trajetDto){
 
-        Utilisateur userConducteur = utilisateurRepository.findById(Long.valueOf(trajetDto.conducteurId())).orElseThrow();
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); // store who is currently logged in
+        String email = authentication.getName(); // return email of the currently logged in user
+
+        // find the user by email
+        Utilisateur userConducteur = utilisateurRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException(" user not found"));
 
         if (userConducteur.getRole() != Role.DRIVER) {
-            throw new IllegalStateException("The user assigned as a driver must have the 'DRIVER' role");
+            throw new IllegalStateException(" user assigned as a driver must have the 'DRIVER' role");
         }
-
-        Long conducteurId = !trajetDto.conducteurId().isEmpty()
-                ? Long.parseLong(trajetDto.conducteurId())
-                : 0L;
 
 
 
@@ -52,4 +55,17 @@ return trajetRepository.save(trajet);
 public List<Trajet> getAllTrajets(){
         return trajetRepository.findAll();
 }
+
+// Modifier trajet
+    public Trajet updateTrajet(Long id , Trajet trajetDetails){
+        Trajet trajet = trajetRepository.findById(id).orElseThrow();
+        trajet.setPointDepart(trajetDetails.getPointDepart());
+        trajet.setEtapesIntermediaires(trajetDetails.getEtapesIntermediaires());
+        trajet.setDestinationFinale(trajetDetails.getDestinationFinale());
+        trajet.setDateDepart(trajetDetails.getDateDepart());
+        trajet.setDimensionsMax(trajetDetails.getDimensionsMax());
+        trajet.setTypeMarchandise(trajetDetails.getTypeMarchandise());
+        trajet.setCapaciteDisponible(trajetDetails.getCapaciteDisponible());
+        return trajetRepository.save(trajet);
+    }
 }
