@@ -42,7 +42,7 @@ public class TrajetService {
        trajet.setEtapesIntermediaires(trajetDto.etapesIntermediaires());
        trajet.setDestinationFinale(trajetDto.destinationFinale());
        trajet.setDateDepart(trajetDto.dateDepart());
-       trajet.setDimensionsMax(trajetDto.destinationFinale());
+       trajet.setDimensionsMax(trajetDto.dimensionsMax());
        trajet.setTypeMarchandise(trajetDto.typeMarchandise());
        trajet.setCapaciteDisponible(trajetDto.capaciteDisponible());
        trajet.setConducteur(userConducteur);

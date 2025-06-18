@@ -1,0 +1,89 @@
+
+<div class="flex h-screen bg-gray-100 p-5 mt-10">
+
+  <!-- Sidebar -->
+  <aside class="w-64 bg-white shadow-lg flex-shrink-0 flex flex-col ">
+    <nav class="mt-6 px-4 space-y-2 flex-1">
+      <a href="/driver-dashboard" class="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+        <span class="mr-3">Tableau de bord</span>
+      </a>
+      <a href="/add-trajet" class="bg-gradient-to-r from-[#845EC2] to-[#D65DB1] text-white flex items-center px-4 py-3 font-semibold rounded-lg shadow-md transition-transform transform hover:scale-105">
+        <span class="mr-3">+</span> Publier un Trajet
+      </a>
+      <a href="#" class="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+        <span class="mr-3">Mon Historique</span>
+      </a>
+    </nav>
+
+  </aside>
+
+  <main class="flex-1 overflow-y-auto">
+    <header class="bg-white shadow-sm p-6">
+      <div>
+        <h2 class="text-3xl font-bold text-gray-800">Publier un Nouveau Trajet</h2>
+        <p class="text-gray-500 mt-1">Remplissez les détails ci-dessous pour ajouter votre trajet à la plateforme.</p>
+      </div>
+    </header>
+
+    <!-- Form Content -->
+    <div class="p-8">
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-white p-8 rounded-2xl shadow-lg">
+
+
+          <form [formGroup]="trajetForm" (ngSubmit)="onSubmit()"  class="space-y-6">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="pointDepart" class="block text-sm font-medium text-gray-700 mb-1">Point de Départ</label>
+                <input type="text"
+                       id="pointDepart"
+                       formControlName="pointDepart" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#845EC2] focus:outline-none" placeholder="ex: Casablanca">
+              </div>
+              <div>
+                <label for="destinationFinale" class="block text-sm font-medium text-gray-700 mb-1">Destination Finale</label>
+                <input type="text" id="destinationFinale" formControlName="destinationFinale" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#845EC2] focus:outline-none" placeholder="ex: Marrakech">
+              </div>
+            </div>
+
+            <div>
+              <label for="etapesIntermediaires" class="block text-sm font-medium text-gray-700 mb-1">Étapes Intermédiaires (Optionnel)</label>
+              <input type="text" id="etapesIntermediaires" formControlName="etapesIntermediaires" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#845EC2] focus:outline-none" placeholder="ex: Settat, Beni Mellal (séparées par une virgule)">
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="dateDepart" class="block text-sm font-medium text-gray-700 mb-1">Date de Départ</label>
+                <input type="date" id="dateDepart" formControlName="dateDepart" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#845EC2] focus:outline-none">
+              </div>
+              <div>
+                <label for="capaciteDisponible" class="block text-sm font-medium text-gray-700 mb-1">Capacité Disponible (nombre de colis)</label>
+                <input type="number" id="capaciteDisponible" formControlName="capaciteDisponible" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#845EC2] focus:outline-none" placeholder="ex: 3">
+              </div>
+            </div>
+
+            <!-- Package Details -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="dimensionsMax" class="block text-sm font-medium text-gray-700 mb-1">Dimensions Max Acceptées</label>
+                <input type="text" id="dimensionsMax" formControlName="dimensionsMax" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#845EC2] focus:outline-none" placeholder="ex: 100x50x30 cm">
+              </div>
+              <div>
+                <label for="typeMarchandise" class="block text-sm font-medium text-gray-700 mb-1">Type de Marchandise Accepté</label>
+                <input type="text" id="typeMarchandise" formControlName="typeMarchandise" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#845EC2] focus:outline-none" placeholder="ex: Électronique, Documents">
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="pt-4 flex justify-end">
+              <button type="submit" class="bg-gradient-to-r from-[#845EC2] to-[#D65DB1] text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex items-center space-x-2">
+                <span>+</span>
+                <span>Publier le Trajet</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

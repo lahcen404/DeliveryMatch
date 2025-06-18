@@ -35,7 +35,7 @@
 - Edit personal information
 - Receive notifications for key actions
 
-### 🚛 Driver
+### 🚛 DriverService
 - Publish trip announcements (departure, stops, destination, capacity, goods type)
 - Manage transport requests (accept/reject)
 - View trip and delivery history
