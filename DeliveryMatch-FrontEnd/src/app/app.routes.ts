@@ -10,6 +10,7 @@ import {driverGuard} from './core/guards/driver guards/driver-guard';
 import {senderGuard} from './core/guards/sender guards/sender-guard';
 import {AddTrajet} from './features/driver/add-trajet/add-trajet';
 import {TrajetCard} from './features/driver/trajet-card/trajet-card';
+import {SearchTrips} from './features/sender/search-trips/search-trips';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -19,6 +20,10 @@ export const routes: Routes = [
   { path: 'admin-dashboard', component: AdminDashboard , canActivate: [adminGuard]},
   { path: 'driver-dashboard', component: DriverDashboard , canActivate: [driverGuard] },
   { path: 'add-trajet', component: AddTrajet , canActivate: [driverGuard]  },
+  { path: 'edit-trajet', component: AddTrajet  },
+  { path: 'trajets', component: SearchTrips  },
+
+
   { path: 'trajet-card', component: TrajetCard },
 
   { path: 'sender-dashboard', component: SenderDashboard , canActivate: [senderGuard] }

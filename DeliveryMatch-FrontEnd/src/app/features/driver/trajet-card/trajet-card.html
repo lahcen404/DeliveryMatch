@@ -1,132 +1,58 @@
+<div class="card-gradient-border h-full rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 flex flex-col">
 
-<body class="text-gray-800 mt-15">
-
-<main class="flex-1 p-8">
-
-  <!-- Header Section -->
-  <header class="flex justify-between items-center mb-8">
-    <div>
-      <h2 class="text-3xl font-bold text-gray-800">Manage Trips</h2>
-    </div>
-    <button routerLink="/add-trajet" class="bg-gradient-to-r from-purple-400 to-pink-300 text-white font-semibold px-5 py-2.5 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex items-center space-x-2">
-      <span id="icon-plus"></span>
-      <span>Add New Trip</span>
-    </button>
-  </header>
-
-  <!-- READ: Grid of Trip Cards -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in-up">
-
-    <!-- Example Trip Card 1 -->
-    <div class="card-gradient-border rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-      <div class="h-full flex flex-col">
-        <div class="h-48 bg-cover bg-center rounded-t-2xl relative">
-          <img src="https://images.pexels.com/photos/1637859/pexels-photo-1637859.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="absolute w-full h-full object-cover rounded-t-2xl">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent"></div>
-          <div class="absolute bottom-0 left-0 p-4">
-            <h3 class="font-extrabold text-2xl text-white">Casablanca to Marrakech</h3>
-            <p class="text-sm text-white/90">June 25, 2024</p>
-          </div>
-        </div>
-
-        <!-- Card Details -->
-        <div class="flex flex-col justify-between flex-1 p-5 space-y-4">
-          <div class="grid grid-cols-2 gap-4 text-center">
-            <div class="p-2 bg-gray-50 rounded-lg">
-              <span id="icon-driver1" class="mx-auto text-purple-400"></span>
-              <p class="text-xs text-gray-500 mt-1">Driver ID</p>
-              <p class="font-bold text-sm">10</p>
-            </div>
-            <div class="p-2 bg-gray-50 rounded-lg">
-              <span id="icon-capacity1" class="mx-auto text-orange-100"></span>
-              <p class="text-xs text-gray-500 mt-1">Capacity</p>
-              <p class="font-bold text-sm">3 places</p>
-            </div>
-          </div>
-          <div class="text-sm space-y-2 pt-2 border-t border-gray-100">
-            <p class="flex justify-between">
-              <span class="font-medium text-gray-500">Max Dims:</span>
-              <span class="font-semibold text-gray-700">100x50x30 cm</span>
-            </p>
-            <p class="flex justify-between">
-              <span class="font-medium text-gray-500">Goods Type:</span>
-              <span class="font-semibold text-gray-700">Electronics</span>
-            </p>
-            <p class="flex justify-between">
-              <span class="font-medium text-gray-500">Stops:</span>
-              <span class="font-semibold text-gray-700">Settat, Beni Mellal</span>
-            </p>
-          </div>
-          <div class="flex space-x-2 pt-2">
-            <button class="flex-1 flex items-center justify-center gap-2 bg-gray-200 hover:bg-purple-400 hover:text-white text-gray-700 font-semibold text-sm px-4 py-2.5 rounded-lg transition-all duration-300"><span id="icon-edit1"></span> Edit</button>
-            <button class="flex-1 flex items-center justify-center gap-2 bg-red-100 hover:bg-red-600 hover:text-white text-red-600 font-semibold text-sm px-4 py-2.5 rounded-lg transition-all duration-300"><span id="icon-delete1"></span> Delete</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Example Trip Card 2 -->
-    <div class="card-gradient-border rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2" style="animation-delay: 100ms;">
-      <div class="h-full flex flex-col">
-        <div class="h-48 bg-cover bg-center rounded-t-2xl relative">
-          <img src="https://images.pexels.com/photos/3354641/pexels-photo-3354641.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="absolute w-full h-full object-cover rounded-t-2xl">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent"></div>
-          <div class="absolute bottom-0 left-0 p-4">
-            <h3 class="font-extrabold text-2xl text-white">New York to Boston</h3>
-            <p class="text-sm text-white/90">June 28, 2024</p>
-          </div>
-        </div>
-        <div class="flex flex-col justify-between flex-1 p-5 space-y-4">
-          <div class="grid grid-cols-2 gap-4 text-center">
-            <div class="p-2 bg-gray-50 rounded-lg">
-              <span id="icon-driver2" class="mx-auto text-purple-400"></span>
-              <p class="text-xs text-gray-500 mt-1">Driver ID</p>
-              <p class="font-bold text-sm">7</p>
-            </div>
-            <div class="p-2 bg-gray-50 rounded-lg">
-              <span id="icon-capacity2" class="mx-auto text-[--c-orange]"></span>
-              <p class="text-xs text-gray-500 mt-1">Capacity</p>
-              <p class="font-bold text-sm">2 places</p>
-            </div>
-          </div>
-          <div class="text-sm space-y-2 pt-2 border-t border-gray-100">
-            <p class="flex justify-between">
-              <span class="font-medium text-gray-500">Max Dims:</span>
-              <span class="font-semibold text-gray-700">50x30x10 cm</span>
-            </p>
-            <p class="flex justify-between">
-              <span class="font-medium text-gray-500">Goods Type:</span>
-              <span class="font-semibold text-gray-700">Documents</span>
-            </p>
-            <p class="flex justify-between">
-              <span class="font-medium text-gray-500">Stops:</span>
-              <span class="font-semibold text-gray-700">None</span>
-            </p>
-          </div>
-          <div class="flex space-x-2 pt-2">
-            <button class="flex-1 flex items-center justify-center gap-2 bg-gray-200 hover:bg-purple-400 hover:text-white text-gray-700 font-semibold text-sm px-4 py-2.5 rounded-lg transition-all duration-300"><span id="icon-edit2"></span> Edit</button>
-            <button class="flex-1 flex items-center justify-center gap-2 bg-red-100 hover:bg-red-600 hover:text-white text-red-600 font-semibold text-sm px-4 py-2.5 rounded-lg transition-all duration-300"><span id="icon-delete2"></span> Delete</button>
-          </div>
-        </div>
-      </div>
+  <div class="h-48 bg-cover bg-center rounded-t-2xl relative">
+    <img
+      [src]="'https://images.pexels.com/photos/1637859/pexels-photo-1637859.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'"
+      class="absolute w-full h-full object-cover rounded-t-2xl"
+      [alt]="trajet.pointDepart + ' to ' + trajet.destinationFinale"
+    >
+    <div class="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent"></div>
+    <div class="absolute bottom-0 left-0 p-4">
+      <h3 class="font-extrabold text-2xl text-white break-words">
+        {{ trajet.pointDepart }} to {{ trajet.destinationFinale }}
+      </h3>
+      <p class="text-sm text-white/90">
+        {{ trajet.dateDepart  }}
+      </p>
     </div>
   </div>
 
-</main>
+  <div class="flex flex-col justify-between flex-1 p-5 space-y-4">
+    <div class="grid grid-cols-2 gap-4 text-center">
+      <div class="p-2 bg-gray-50 rounded-lg">
+        <i class="fas fa-user mx-auto text-purple-400"></i>
+        <p class="text-xs text-gray-500 mt-1">Driver ID</p>
+        <p class="font-bold text-sm">{{ trajet.idConducteur }}</p>
+      </div>
+      <div class="p-2 bg-gray-50 rounded-lg">
+        <i class="fas fa-box mx-auto text-orange-400"></i>
+        <p class="text-xs text-gray-500 mt-1">Capacity</p>
+        <p class="font-bold text-sm">{{ trajet.capaciteDisponible }} places</p>
+      </div>
+    </div>
 
-<script type="text/babel">
-  const { Plus, Pencil, Trash2, User, Package } = LucideReact;
-  const renderIcon = (component, containerId, props = {}) => ReactDOM.render(React.createElement(component, props), document.getElementById(containerId));
-  renderIcon(Plus, 'icon-plus', {size: 20});
-  renderIcon(Pencil, 'icon-edit1', {size: 16});
-  renderIcon(Trash2, 'icon-delete1', {size: 16});
-  renderIcon(Pencil, 'icon-edit2', {size: 16});
-  renderIcon(Trash2, 'icon-delete2', {size: 16});
-  // Icons for Card 1
-  renderIcon(User, 'icon-driver1', {size: 20});
-  renderIcon(Package, 'icon-capacity1', {size: 20});
-  // Icons for Card 2
-  renderIcon(User, 'icon-driver2', {size: 20});
-  renderIcon(Package, 'icon-capacity2', {size: 20});
-</script>
-</body>
+    <div class="text-sm space-y-2 pt-2 border-t border-gray-100">
+      <p class="flex justify-between">
+        <span class="font-medium text-gray-500">Max Dims:</span>
+        <span class="font-semibold text-gray-700">{{ trajet.dimensionsMax }}</span>
+      </p>
+      <p class="flex justify-between">
+        <span class="font-medium text-gray-500">Goods Type:</span>
+        <span class="font-semibold text-gray-700">{{ trajet.typeMarchandise }}</span>
+      </p>
+      <p class="flex justify-between">
+        <span class="font-medium text-gray-500">Stops:</span>
+        <span class="font-semibold text-gray-700">{{ trajet.etapesIntermediaires || 'None' }}</span>
+      </p>
+    </div>
+
+    <div *ngIf="authService.getRole() === 'ADMIN'" class="flex space-x-2 pt-2">
+      <button (click)="onEdit(trajet)" class="flex-1 flex items-center justify-center gap-2 bg-gray-200 hover:bg-purple-400 hover:text-white text-gray-700 font-semibold text-sm px-4 py-2.5 rounded-lg transition-all duration-300">
+        <i class="fas fa-edit"></i> Edit
+      </button>
+      <button class="flex-1 flex items-center justify-center gap-2 bg-red-100 hover:bg-red-600 hover:text-white text-red-600 font-semibold text-sm px-4 py-2.5 rounded-lg transition-all duration-300">
+        <i class="fas fa-trash-alt"></i> Delete
+      </button>
+    </div>
+  </div>
+</div>

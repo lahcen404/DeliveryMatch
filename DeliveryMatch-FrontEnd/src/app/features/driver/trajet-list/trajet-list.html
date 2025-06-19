@@ -1,1 +1,11 @@
-<p>trajet-list works!</p>
+<!-- Wrapper with flex: sidebar on left, events on right -->
+<div class="flex bg-gray-900 text-white min-h-screen">
+
+  <!-- Main Content: Event Cards -->
+  <main class="flex-1 p-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <app-trajet-card *ngFor="let trajet of trajets" [trajet]="trajet"    (deleted)="onTrajetDeleted($event)">
+      </app-trajet-card>
+    </div>
+  </main>
+</div>
