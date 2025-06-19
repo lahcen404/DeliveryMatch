@@ -13,6 +13,7 @@ public class Demande {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String destination;
     private String dimensionsColis;
     private double poidsColis;
     private String typeColis;
@@ -28,5 +29,7 @@ public class Demande {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "trajet_id", nullable = false)
     private Trajet trajet;
+
+
 }
 

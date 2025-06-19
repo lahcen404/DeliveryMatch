@@ -45,9 +45,7 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-.fade-in-up {
-  animation: fadeInUp 0.5s ease-out forwards;
-}
+
 
 .active-link {
   background: linear-gradient(90deg, var(--c-purple), var(--c-pink));
@@ -61,4 +59,28 @@ body {
 .chart-placeholder { background: linear-gradient(135deg, #f5f3ff 0%, #fde2f3 100%); }
 
 .fade-in-up { animation: fadeInUp 0.5s ease-out forwards; }
+
+
+.card-gradient-border {
+  position: relative;
+  background-color: white;
+  z-index: 1;
+}
+.card-gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 1.2rem;
+
+
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.card-gradient-border:hover::before {
+  opacity: 1;
+}
 

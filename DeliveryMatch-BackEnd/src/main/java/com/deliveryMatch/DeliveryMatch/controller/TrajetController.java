@@ -35,4 +35,15 @@ public class TrajetController {
     public Trajet updateTrajet(@PathVariable Long id , @RequestBody Trajet trajet){
         return trajetService.updateTrajet(id,trajet);
     }
+
+    @GetMapping("{id}")
+    public Trajet getTrajetById(@PathVariable Long id){
+        return trajetService.getTrajetById(id).orElseThrow();
+    }
+
+    @DeleteMapping("{id}")
+    public void deleteTrajet(@PathVariable Long id){
+        trajetService.deleteTrajet(id);
+    }
+
 }

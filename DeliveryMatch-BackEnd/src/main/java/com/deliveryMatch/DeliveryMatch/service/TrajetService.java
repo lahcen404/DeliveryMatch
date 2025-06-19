@@ -11,6 +11,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TrajetService {
@@ -68,4 +69,15 @@ public List<Trajet> getAllTrajets(){
         trajet.setCapaciteDisponible(trajetDetails.getCapaciteDisponible());
         return trajetRepository.save(trajet);
     }
+
+    //get Trajet by id
+    public Optional<Trajet> getTrajetById(Long id){
+        return trajetRepository.findById(id);
+    }
+
+    //delete
+    public void deleteTrajet(Long id){
+        trajetRepository.deleteById(id);
+    }
+
 }
