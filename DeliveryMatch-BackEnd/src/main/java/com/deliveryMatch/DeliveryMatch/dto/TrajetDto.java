@@ -27,6 +27,7 @@ public record TrajetDto(
         @Min(value = 1, message = "La capacité disponible doit être au moins 1")
         int capaciteDisponible
 
+
         ){
 
 }
