@@ -11,6 +11,7 @@ import {senderGuard} from './core/guards/sender guards/sender-guard';
 import {AddTrajet} from './features/driver/add-trajet/add-trajet';
 import {TrajetCard} from './features/driver/trajet-card/trajet-card';
 import {SearchTrips} from './features/sender/search-trips/search-trips';
+import {TripManagement} from './features/admin/trip-management/trip-management';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -19,9 +20,9 @@ export const routes: Routes = [
   { path: 'home', component: Home },
   { path: 'admin-dashboard', component: AdminDashboard , canActivate: [adminGuard]},
   { path: 'driver-dashboard', component: DriverDashboard , canActivate: [driverGuard] },
-  { path: 'add-trajet', component: AddTrajet , canActivate: [driverGuard]  },
-  { path: 'edit-trajet', component: AddTrajet  },
-  { path: 'trajets', component: SearchTrips  },
+  { path: 'add-trajet', component: AddTrajet , canActivate: [driverGuard , adminGuard]   },
+  { path: 'edit-trajet', component: AddTrajet , canActivate:[adminGuard ] },
+  { path: 'trajets', component: TripManagement  },
 
 
   { path: 'trajet-card', component: TrajetCard },

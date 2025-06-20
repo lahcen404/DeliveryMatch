@@ -89,3 +89,14 @@ Charts powered by **Chart.js**
 - Maven
 
 
+---
+## UMLs
+### Class Diagram
+![img.png](img.png)
+
+### Class Diagram
+![img_1.png](img_1.png)
+![img_2.png](img_2.png)
+
+### Sequence Diagram
+![img_3.png](img_3.png)

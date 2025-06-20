@@ -26,7 +26,7 @@ export class TrajetCard {
   ){}
 
   onEdit(trajet: Trajet){
-    this.router.navigate(['/edit-event', trajet.id])
+    this.router.navigate(['/edit-trajet', trajet.id])
   }
 
 

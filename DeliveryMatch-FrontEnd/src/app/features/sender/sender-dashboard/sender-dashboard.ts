@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
+import {TrajetList} from '../../driver/trajet-list/trajet-list';
 
 @Component({
   selector: 'app-sender-dashboard',
-  imports: [],
+  imports: [
+    TrajetList
+  ],
   templateUrl: './sender-dashboard.html',
   styleUrl: './sender-dashboard.scss'
 })
