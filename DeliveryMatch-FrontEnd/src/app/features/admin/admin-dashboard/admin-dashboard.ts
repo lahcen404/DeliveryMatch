@@ -36,6 +36,8 @@ ChartJS.register(
   styleUrl: './admin-dashboard.scss'
 })
 export class AdminDashboard implements OnInit {
+
+
   totalUsers = 0;
   totalTrips = 0;
   pendingRequests = 0;

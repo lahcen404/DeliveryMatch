@@ -1,34 +1,93 @@
-
 <!-- Header -->
 <header class="bg-white/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 border-b border-gray-200">
   <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-    <div class="flex items-center space-x-2">
-      <!-- Lucide Icon: Package -->
+    <!-- Logo -->
+    <a routerLink="/" (click)="closeMenu()" class="flex items-center space-x-2">
       <div id="logo-icon"></div>
-      <h1 class="text-2xl font-bold text-gray-800">Delivery<span class="text-[--c-purple]">Match</span></h1>
-    </div>
-    <nav class="hidden md:flex items-center space-x-8">
-      <a href="#how-it-works" class="text-gray-600 hover:text-[--c-purple] transition-colors">How It Works</a>
-      <a href="#features" class="text-gray-600 hover:text-[--c-purple] transition-colors">Features</a>
-      <a href="#contact" class="text-gray-600 hover:text-[--c-purple] transition-colors">Contact</a>
-    </nav>
-    <div class="flex items-center space-x-4">
-      <ul>
-      <li *ngIf="!authService.isLoggedIn()">
-        <a routerLink="/login" class="bg-purple-400 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[--c-pink] transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
-          Login</a>
-      </li>
+      <h1 class="text-2xl font-bold text-gray-800">Delivery<span class="text-purple-600">Match</span></h1>
+    </a>
 
-      <li *ngIf="authService.isLoggedIn()">
-        <button (click)="logout()" class="bg-purple-400 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[--c-pink] transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
-          Logout</button>
-      </li>
-      </ul>
-      <li *ngIf="!authService.isLoggedIn()">
-      <a routerLink="/register" class="bg-purple-400 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[--c-pink] transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
-        Sign Up
-      </a>
-      </li>
+    <!-- Desktop Navigation (hidden on small screens) -->
+    <nav class="hidden md:flex items-center space-x-8">
+      <a href="#how-it-works" class="text-gray-600 hover:text-purple-600 transition-colors">How It Works</a>
+      <a href="#features" class="text-gray-600 hover:text-purple-600 transition-colors">Features</a>
+      <a href="#contact" class="text-gray-600 hover:text-purple-600 transition-colors">Contact</a>
+      <!-- ✅ ADDED: Dashboard link for logged-in users -->
+      <a *ngIf="isLoggedIn()" routerLink="/dashboard" class="text-gray-600 hover:text-purple-600 transition-colors">Dashboard</a>
+    </nav>
+
+    <!-- Desktop Action Buttons (hidden on small screens) -->
+    <div class="hidden md:flex items-center space-x-4">
+      <div *ngIf="!authService.isLoggedIn(); else loggedInButtonsDesktop">
+        <a routerLink="/login" class="text-gray-600 hover:text-purple-600 font-medium transition-colors">Login</a>
+        <a routerLink="/register" class="ml-4 bg-purple-500 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-purple-600 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+          Sign Up
+        </a>
+      </div>
+      <ng-template #loggedInButtonsDesktop>
+        <button (click)="logout()" class="bg-purple-500 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-purple-600 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+          Logout
+        </button>
+      </ng-template>
+    </div>
+
+    <!-- Mobile Menu Button (visible on small screens) -->
+    <div class="md:hidden">
+      <button (click)="toggleMenu()" class="text-gray-700 hover:text-purple-600 focus:outline-none">
+        <span *ngIf="!isMenuOpen" id="icon-menu"></span>
+        <span *ngIf="isMenuOpen" id="icon-close"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Panel (conditionally displayed) -->
+  <div *ngIf="isMenuOpen" class="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200">
+    <div class="px-5 pt-4 pb-8 space-y-4">
+      <!-- Mobile Navigation Links -->
+      <a href="#how-it-works" (click)="closeMenu()" class="block text-gray-700 font-semibold hover:text-purple-600">How It Works</a>
+      <a href="#features" (click)="closeMenu()" class="block text-gray-700 font-semibold hover:text-purple-600">Features</a>
+      <a href="#contact" (click)="closeMenu()" class="block text-gray-700 font-semibold hover:text-purple-600">Contact</a>
+      <!-- ✅ ADDED: Dashboard link for logged-in users -->
+      <a *ngIf="isLoggedIn()" routerLink="/dashboard" (click)="closeMenu()" class="block text-gray-700 font-semibold hover:text-purple-600">Dashboard</a>
+
+      <hr class="border-gray-200" />
+
+      <!-- Mobile Action Buttons -->
+      <div *ngIf="!authService.isLoggedIn(); else loggedInButtonsMobile" class="flex flex-col space-y-4">
+        <a routerLink="/login" (click)="closeMenu()" class="w-full text-center bg-gray-100 text-purple-600 font-semibold px-5 py-3 rounded-lg hover:bg-gray-200 transition-colors">
+          Login
+        </a>
+        <a routerLink="/register" (click)="closeMenu()" class="w-full text-center bg-purple-500 text-white font-semibold px-5 py-3 rounded-lg hover:bg-purple-600 transition-colors shadow-md">
+          Sign Up
+        </a>
+      </div>
+      <ng-template #loggedInButtonsMobile>
+        <button (click)="logout()" class="w-full text-center bg-red-500 text-white font-semibold px-5 py-3 rounded-lg hover:bg-red-600 transition-colors shadow-md">
+          Logout
+        </button>
+      </ng-template>
     </div>
   </div>
 </header>
+
+<!-- Script to render Lucide icons -->
+<script>
+  if (typeof lucide !== 'undefined') {
+    const renderIcon = (component, containerId, props = {}) => {
+      const el = document.getElementById(containerId);
+      if(el) {
+        const iconNode = lucide.icons[component];
+        if (iconNode) {
+          const svg = new DOMParser().parseFromString(lucide.createIcons({icons: [[component, props]]}), 'image/svg+xml').querySelector('svg');
+          el.innerHTML = svg.outerHTML;
+        }
+      }
+    };
+
+    setTimeout(() => {
+      renderIcon('Package', 'logo-icon', { class: 'w-8 h-8 text-purple-600' });
+      renderIcon('Menu', 'icon-menu', { class: 'w-7 h-7' });
+      renderIcon('X', 'icon-close', { class: 'w-7 h-7' });
+    }, 0);
+  }
+</script>

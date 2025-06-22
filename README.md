@@ -100,3 +100,5 @@ Charts powered by **Chart.js**
 
 ### Sequence Diagram
 ![img_3.png](img_3.png)
+
+### ===>  [Postman LINK ](https://yguhijopl.postman.co/workspace/My-Workspace~49aab289-6de5-487b-8f91-58ce1aacf8db/collection/41299916-1f8ddd1d-8ed1-4a6e-b15a-3511b6380555?action=share&creator=41299916)

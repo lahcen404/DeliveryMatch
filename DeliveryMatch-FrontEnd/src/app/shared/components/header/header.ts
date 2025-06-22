@@ -13,6 +13,7 @@ import {NgIf} from '@angular/common';
   styleUrl: './header.scss'
 })
 export class Header {
+  public isMenuOpen = false;
 
   constructor( protected authService: AuthService, private router: Router) {
   }
@@ -24,6 +25,13 @@ export class Header {
   }
   onToggleSidebar() {
     this.toggleSidebarEvent.emit();
+  }
+
+  closeMenu(): void {
+    this.isMenuOpen = false;
+  }
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 
   logout() {

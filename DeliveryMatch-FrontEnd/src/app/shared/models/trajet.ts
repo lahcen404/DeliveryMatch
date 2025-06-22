@@ -1,5 +1,5 @@
 export interface Trajet {
-  id?: number;
+  id: number;
   pointDepart: string;
   destinationFinale: string;
   etapesIntermediaires: string;

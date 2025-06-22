@@ -1,10 +1,10 @@
 <body class="text-gray-800 mt-16">
-<div class="flex h-screen bg-[--c-light-bg]">
+<div class="flex h-screen bg-[--c-light-bg] mt-15">
   <!-- Sidebar -->
   <aside class="w-64 bg-white shadow-lg flex-shrink-0 flex flex-col">
     <nav class="mt-6 px-4 space-y-2 flex-1">
-      <a href="#" class="active-link flex items-center px-4 py-3 font-semibold transition-transform transform hover:scale-105"><span id="icon-dashboard" class="mr-3"></span> Dashboard</a>
-      <a href="#" class="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"><span id="icon-users" class="mr-3"></span> Gérer Users</a>
+      <a routerLink="/admin-dashboard" class="active-link flex items-center px-4 py-3 font-semibold transition-transform transform hover:scale-105"><span id="icon-dashboard" class="mr-3"></span> Dashboard</a>
+      <a routerLink="/users" class="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"><span id="icon-users" class="mr-3"></span> Gérer Users</a>
       <a routerLink="/trajets" class="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"><span id="icon-trips" class="mr-3"></span> Gérer Trajets</a>
       <a href="#" class="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"><span id="icon-requests" class="mr-3"></span> Gérer Demandes</a>
     </nav>
@@ -27,8 +27,18 @@
       <div class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-lg fade-in-up" style="animation-delay: 400ms;">
           <h3 class="font-semibold mb-4 text-gray-700">Voir Statistiques</h3>
-          <div class="h-80 chart-placeholder flex items-center justify-center rounded-lg"><p class="text-gray-400 font-medium">Chart.js User Growth Chart Here</p></div>
-        </div>
+          <!-- 📊 Chart Section -->
+          <div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-lg fade-in-up" style="animation-delay: 400ms;">
+            <h3 class="font-semibold mb-4 text-gray-700">Voir Statistiques</h3>
+            <div style="height: 320px;">
+              <canvas
+                baseChart
+                [data]="barChartData"
+                [options]="barChartOptions"
+                [type]="'bar'">
+              </canvas>
+            </div>
+          </div>        </div>
         <div class="bg-white p-6 rounded-xl shadow-lg fade-in-up" style="animation-delay: 500ms;">
           <h3 class="font-semibold mb-4 text-gray-700">Gérer User</h3>
           <div class="flex flex-col space-y-3">

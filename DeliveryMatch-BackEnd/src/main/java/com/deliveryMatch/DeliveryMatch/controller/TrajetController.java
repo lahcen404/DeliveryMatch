@@ -20,7 +20,7 @@ public class TrajetController {
         this.trajetService = trajetService;
     }
 
-    @PreAuthorize("hasAuthority('DRIVER')")
+    @PreAuthorize("hasAnyAuthority('DRIVER','ADMIN')")
     @PostMapping
     public Trajet createTrajet(@Valid @RequestBody TrajetDto trajetDto){
         return trajetService.createTrajet(trajetDto);
