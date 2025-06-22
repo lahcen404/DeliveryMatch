@@ -31,16 +31,20 @@ public class TrajetController {
         return trajetService.getAllTrajets();
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
+
     @PutMapping("/{id}")
     public Trajet updateTrajet(@PathVariable Long id , @RequestBody Trajet trajet){
         return trajetService.updateTrajet(id,trajet);
     }
+
 
     @GetMapping("{id}")
     public Trajet getTrajetById(@PathVariable Long id){
         return trajetService.getTrajetById(id).orElseThrow();
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @DeleteMapping("{id}")
     public void deleteTrajet(@PathVariable Long id){
         trajetService.deleteTrajet(id);
